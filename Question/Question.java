@@ -23,6 +23,16 @@ public class Question
    {
       text = questionText;
    }
+   
+    /**
+     * 
+     * @param   questionText   the additional text of this question
+     */
+    public void addText(String questionText)
+    {
+        text += questionText;
+    }
+
 
    /**
       Sets the answer for this question.
