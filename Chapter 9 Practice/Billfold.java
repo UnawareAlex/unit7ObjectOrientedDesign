@@ -21,8 +21,22 @@ public class Billfold
         }
     }
     
+    public int getExpiredCardCount()
+    {
+        int numExpired = 0;
+        if (card1.isExpired() == true)
+        {
+            numExpired++;
+        }
+        if  (card2.isExpired() == true)
+        {
+            numExpired++;
+        }
+        return numExpired;
+    }
+    
     public String formatCards()
     {
-        
+        return card1.format() + "\n" + card2.format();
     }
 }
