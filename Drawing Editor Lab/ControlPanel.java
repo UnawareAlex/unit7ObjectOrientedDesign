@@ -1,27 +1,23 @@
-import javax.swing.JFrame;
-import java.awt.BorderLayout;
+
+
 /**
- * Write a description of class DrawingEditor here.
+ * Write a description of class ControlPanel here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class DrawingEditor extends JFrame
+public class ControlPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-
+    private int x;
 
     /**
-     * Default constructor for objects of class DrawingEditor
+     * Default constructor for objects of class ControlPanel
      */
-    public DrawingEditor()
+    public ControlPanel()
     {
         // initialise instance variables
-        super("Drawing Editor");
-        this.setLayout(new BorderLayout());
-        this.setSize(500, 500);
-        //this.add(canvas, BorderLayout.CENTER);
-        //this.add(controls, BorderLayout.SOUTH);
+        x = 0;
     }
 
     /**
@@ -35,11 +31,10 @@ public class DrawingEditor extends JFrame
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public static void main(String[] args)
+    public int sampleMethod(int y)
     {
         // put your code here
-        DrawingEditor newEditor = new DrawingEditor();
-        
+        return x+y;
     }
 
 }
