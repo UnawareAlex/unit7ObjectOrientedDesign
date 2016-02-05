@@ -19,7 +19,6 @@ public class DrawingEditor extends JFrame
         // initialise instance variables
         super("Drawing Editor");
         this.setLayout(new BorderLayout());
-        this.setSize(500, 500);
         //this.add(canvas, BorderLayout.CENTER);
         //this.add(controls, BorderLayout.SOUTH);
     }
@@ -35,11 +34,14 @@ public class DrawingEditor extends JFrame
      * @param    y    description of parameter y
      * @return    description of the return value
      */
-    public static void main(String[] args)
+    public static void main(String[] args) 
     {
         // put your code here
-        DrawingEditor newEditor = new DrawingEditor();
-        
+        DrawingEditor editor = new DrawingEditor();
+       
+        editor.setSize(500, 500);
+        editor.setVisible(true);
+
     }
 
 }
