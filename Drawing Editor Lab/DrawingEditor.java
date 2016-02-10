@@ -3,13 +3,14 @@ import java.awt.BorderLayout;
 /**
  * Write a description of class DrawingEditor here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Alex Arnold 
+ * 2/8/16
  */
 public class DrawingEditor extends JFrame
 {
     /** description of instance variable x (add comment for each instance variable) */
-
+    private static final int FRAME_WIDTH = 500;     //sets width for the drawing editor
+    private static final int FRAME_HEIGHT = 500;    //sets height for the drawing editor
 
     /**
      * Default constructor for objects of class DrawingEditor
@@ -39,7 +40,8 @@ public class DrawingEditor extends JFrame
         // put your code here
         DrawingEditor editor = new DrawingEditor();
        
-        editor.setSize(500, 500);
+        editor.setSize(FRAME_WIDTH, FRAME_HEIGHT);
+        editor.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         editor.setVisible(true);
 
     }
