@@ -1,29 +1,25 @@
 import java.util.Scanner;
 import java.util.Arrays;
 
-public class Person implements Comparable
+public class Person implements Comparable<Person>
 {
     private String name;
     
-    public Person()
+    public Person(String name)
     {
-        name = "";
+       this.name = name;
     }
     
-    public int compareTo(Object obj)
+    public String getName()
     {
-        Person asdfsadf = (Person)obj;
+        return name;
     }
     
-    public static void main(String[] args)
+    public int compareTo(Person other)
     {
-        Scanner s = new Scanner(System.in);
-        Person[] people = new Person[10];
-        for (int i = 1; i <= 10; i++)
-        {
-            System.out.println("Please enter a name: ");
-            name = s.next();
-            
-        }
+        String myName = this.name;
+        String otherName = other.name;
+        
+        return myName.compareTo(otherName);
     }
 }
