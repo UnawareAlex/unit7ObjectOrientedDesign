@@ -16,6 +16,7 @@ public class TriangleViewer extends JComponent
     private JFrame frame;
     private JPanel panel;
     private JComponent component;
+    private int count;
     
     public TriangleViewer()
     {
@@ -31,16 +32,29 @@ public class TriangleViewer extends JComponent
         this.frame.setVisible(true);
     }
     
-    public class MousePressListener implements MouseListener
+    public class MouseClickListener implements MouseListener
     {
         public void actionPerformed(MouseEvent event)
         {
             int x = event.getX();
             int y = event.getY();
+            drawDot(x, y);
         }
+        public void mousePressed(MouseEvent event){}
         public void mouseReleased(MouseEvent event){}
-        public void mouseClicked(MouseEvent event){}
+        public void mouseClicked(MouseEvent event)
+        {
+            count++
+            int x = event.getX();
+            int y = event.getY();
+            drawDot(x, y);
+        }
         public void mouseEntered(MouseEvent event){}
         public void mouseExited(MouseEvent event){}
+    }
+    
+    public static void main(String[] args)
+    {
+        TriangleViewer view = new TriangleViewer();
     }
 }
