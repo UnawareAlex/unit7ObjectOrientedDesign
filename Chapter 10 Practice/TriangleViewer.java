@@ -13,19 +13,19 @@ public class TriangleViewer extends JComponent
 {
     private static final int FRAME_WIDTH = 1000;
     private static final int FRAME_HEIGHT = 1000;
+    private int numClicks;
     private JFrame frame;
-    private JPanel panel;
-    private JComponent component;
-    private int count;
+    private TriangleComponent triangle;
     
     public TriangleViewer()
     {
-        this.frame = new JFrame();
-        this.panel = new JPanel();
-        this.frame.add(panel);
+        this.numClicks = 0;
+        this.frame = new JFrame("Triangle Fun Time");
+        this.triangle = new TriangleComponent();
+        this.frame.add(triangle);
         
-        MousePressListener listener = new MousePressListener();
-        component.addMouseListener(listener);
+        MouseClickListener listener = new MouseClickListener();
+        triangle.addMouseListener(listener);
         
         this. frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -34,20 +34,16 @@ public class TriangleViewer extends JComponent
     
     public class MouseClickListener implements MouseListener
     {
-        public void actionPerformed(MouseEvent event)
-        {
-            int x = event.getX();
-            int y = event.getY();
-            drawDot(x, y);
-        }
+        public void actionPerformed(MouseEvent event){}
         public void mousePressed(MouseEvent event){}
         public void mouseReleased(MouseEvent event){}
         public void mouseClicked(MouseEvent event)
         {
-            count++
+            numClicks++;
             int x = event.getX();
             int y = event.getY();
-            drawDot(x, y);
+            triangle.updatePoint(numClicks,x,y);
+            triangle.repaint();
         }
         public void mouseEntered(MouseEvent event){}
         public void mouseExited(MouseEvent event){}
