@@ -1,4 +1,7 @@
-
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Write a description of class ControlPanel here.
@@ -9,32 +12,55 @@
 public class ControlPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
-    private int x;
+    private JButton pickColor;
+    private JButton addCircle;
+    private JButton addSquare;
+    private DrawingPanel canvas;
+    
 
     /**
      * Default constructor for objects of class ControlPanel
      */
-    public ControlPanel()
+    public ControlPanel(DrawingPanel panel)
     {
         // initialise instance variables
-        x = 0;
+        this.canvas = panel;
+        
+        this.pickColor = new JButton("Pick Color");
+        this.add(this.pickColor);
+        
+        this.addCircle = new JButton("Add Circle");
+        this.add(this.addCircle);
+        
+        this.addSquare = new JButton("Add Square");
+        this.add(this.addSquare);
+        
+        ClickListener listener = new ClickListener(); 
+        this.pickColor.addActionListener(listener); 
+        this.addCircle.addActionListener(listener);
+        this.addSquare.addActionListener(listener);
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
-     */
-    public int sampleMethod(int y)
+    
+    public class ClickListener implements ActionListener
     {
-        // put your code here
-        return x+y;
+        public void actionPerformed(ActionEvent event)
+        {
+            System.out.println("Button " + event.getActionCommand() + " was clicked!");
+            
+            if (event.getActionCommand().equals("Pick Color"))
+            {
+                canvas.pickColor();
+            }
+            else if (event.getActionCommand().equals("Add Circle"))
+            {
+                canvas.addCircle();
+            }
+            else if (event.getActionCommand().equals("Add Square"))
+            {
+                canvas.addSquare();
+            }
+        }
     }
+    
 
 }
