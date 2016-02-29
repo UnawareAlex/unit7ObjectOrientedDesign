@@ -13,6 +13,7 @@ public class ControlPanel extends JPanel
 {
     /** description of instance variable x (add comment for each instance variable) */
     private JButton pickColor;
+    private JPanel currentColor;
     private JButton addCircle;
     private JButton addSquare;
     private DrawingPanel canvas;
@@ -28,6 +29,10 @@ public class ControlPanel extends JPanel
         
         this.pickColor = new JButton("Pick Color");
         this.add(this.pickColor);
+        
+        this.currentColor = new JPanel();
+        currentColor.setBackground(canvas.getColor());
+        this.add(this.currentColor);
         
         this.addCircle = new JButton("Add Circle");
         this.add(this.addCircle);

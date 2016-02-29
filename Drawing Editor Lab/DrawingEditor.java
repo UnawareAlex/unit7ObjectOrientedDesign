@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.geom.Point2D;
 /**
  * Write a description of class DrawingEditor here.
  * 
@@ -23,18 +25,17 @@ public class DrawingEditor extends JFrame
     {
         // initialise instance variables
         super("Drawing Editor");
-        this.canvas = new DrawingPanel();
+        this.canvas = new DrawingPanel(canvas);
         this.control = new ControlPanel(canvas);
-        this.setBackground(Color.white);
+    
 
         this.setLayout(new BorderLayout());
-        //this.add(canvas, BorderLayout.CENTER);
+        this.add(canvas, BorderLayout.CENTER);
         this.add(control, BorderLayout.SOUTH);
         
         this.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setVisible(true);
-
     }
 
     /**
