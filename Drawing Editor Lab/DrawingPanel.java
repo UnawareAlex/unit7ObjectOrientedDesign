@@ -10,8 +10,9 @@ import javax.swing.JColorChooser;
 import java.awt.geom.Ellipse2D;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.Point2D;
+
 /**
  * Write a description of class DrawingPanel here.
  * 
@@ -25,9 +26,11 @@ public class DrawingPanel extends JPanel
     private Shape activeShape;
     private Color currentColor;
     private DrawingPanel canvas;
+    private Point2D.Double center;
     
-    private Ellipse2D.Double circle;
-    private Rectangle2D.Double rectangle;
+    //private Ellipse2D.Double circle;
+    //private Rectangle2D.Double rectangle;
+    
     /**
      * Default constructor for objects of class DrawingPanel
      */
@@ -38,8 +41,9 @@ public class DrawingPanel extends JPanel
         this.shapes = new ArrayList<Shape>();
         this.canvas = panel;
         this.currentColor = Color.yellow;
-        this.circle = new Ellipse2D.Double(0, 0, 0, 0);
-        this.rectangle = new Rectangle2D.Double(0, 0, 0, 0);
+        this.center.setLocation(250, 250);
+        //this.circle = new Ellipse2D.Double(0, 0, 0, 0);
+        //this.rectangle = new Rectangle2D.Double(0, 0, 0, 0);
     }
 
     public Color getColor()
@@ -55,14 +59,16 @@ public class DrawingPanel extends JPanel
 
     public void addCircle()
     {
-        circle.setFrame(250, 250, 20, 20);
+        activeShape = new Circle(center, 40, currentColor);
+        shapes.add(activeShape);
         repaint();
         System.out.println("You succesfully called addCircle method from DrawingPanel");
     }
 
     public void addSquare()
     {
-        rectangle.setFrame(250, 250, 40, 30);
+        activeShape = new Rectangle(center, 40, currentColor);
+        shapes.add(activeShape);
         repaint();
         System.out.println("You succesfully called addSquare method from DrawingPanel");
     }
