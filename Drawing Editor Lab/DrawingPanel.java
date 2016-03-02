@@ -40,8 +40,8 @@ public class DrawingPanel extends JPanel
         this.setBackground(Color.white);
         this.shapes = new ArrayList<Shape>();
         this.canvas = panel;
-        this.currentColor = Color.yellow;
-        this.center.setLocation(250, 250);
+        this.currentColor = Color.red;
+        this.center = new Point2D.Double(250, 250);
         //this.circle = new Ellipse2D.Double(0, 0, 0, 0);
         //this.rectangle = new Rectangle2D.Double(0, 0, 0, 0);
     }
@@ -67,7 +67,7 @@ public class DrawingPanel extends JPanel
 
     public void addSquare()
     {
-        activeShape = new Rectangle(center, 40, currentColor);
+        activeShape = new Square(center, 40, currentColor);
         shapes.add(activeShape);
         repaint();
         System.out.println("You succesfully called addSquare method from DrawingPanel");
@@ -78,19 +78,32 @@ public class DrawingPanel extends JPanel
         // put your code here
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D)g;
-        g2.setColor(currentColor);
-        g2.draw(circle);
-        g2.draw(rectangle);
+        for (Shape shape:shapes)
+        {
+            shape.draw(g2, true);
+        }
     }
     
     public class MouseListen implements MouseListener
     {
-        public void mouseClicked(MouseEvent e){}
+        public void mouseClicked(MouseEvent e)
+        {
+            Point2D.Double pointClicked = new Point2D.Double(e.getX(), e.getY());
+            boolean containsPoint = false;
+            for (int i = shapes.lastIndexOf(shapes); i >= 0; i--)
+            {
+                while (containsPoint = false)
+                {
+                    if (shapes.get(i).isInside(pointClicked))
+                    {
+                        Shape selecedShape = shapes.get(i);
+                    }
+                }
+            }
+        }
         public void mouseEntered(MouseEvent e){}
         public void mouseExited(MouseEvent e){}
         public void mousePressed(MouseEvent e){}
         public void mouseReleased(MouseEvent e){}
     }
-
-
 }

@@ -9,7 +9,6 @@ import java.awt.Graphics2D;
  */
 public abstract class Shape
 {
-   private Point2D.Double center;
    private double xCord;
    private double yCord;
    private double radius;
@@ -18,13 +17,13 @@ public abstract class Shape
    {
        this.xCord = center.getX();
        this.yCord = center.getY();
-       this.center.setLocation(xCord, yCord);
        this.radius = radius;
        this.color = color;
    }
     
    public Point2D.Double getCenter()
    {
+       Point2D.Double center = new Point2D.Double(xCord, yCord);
        return center;
    }
     
@@ -35,14 +34,19 @@ public abstract class Shape
     
    public void move(double x, double y)
    {
-       center.setLocation(x, y);
+       xCord = x;
+       yCord = y;
    }
     
    public void setRadius(double r)
    {
        radius = r;
    }
-    
+   
+   public Color getColor()
+   {
+      return color; 
+   }
    public abstract boolean isInside(Point2D.Double point);
     
    public abstract void draw(Graphics2D g2, boolean filled);
