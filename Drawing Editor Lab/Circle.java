@@ -19,7 +19,7 @@ public class Circle extends Shape
     public boolean isInside(Point2D.Double point)
     {
         Ellipse2D.Double circle = new Ellipse2D.Double((int)getCenter().getX(), (int)getCenter().getY(), (int)getRadius(), (int)getRadius());
-        if (circle.contains(point.getX(), point.getY()))
+        if (this.getCenter().distance(point) < this.getRadius())
         {
             return true;
         }

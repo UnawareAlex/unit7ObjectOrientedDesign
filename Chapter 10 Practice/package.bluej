@@ -18,8 +18,8 @@ objectbench.height=100
 objectbench.width=804
 package.editor.height=610
 package.editor.width=1001
-package.editor.x=151
-package.editor.y=23
+package.editor.x=109
+package.editor.y=43
 package.numDependencies=5
 package.numTargets=8
 package.showExtends=true
@@ -51,10 +51,10 @@ target2.typeParameters=
 target2.width=80
 target2.x=150
 target2.y=70
-target3.editor.height=1010
+target3.editor.height=773
 target3.editor.width=840
 target3.editor.x=0
-target3.editor.y=0
+target3.editor.y=23
 target3.height=50
 target3.name=TriangleComponent
 target3.naviview.expanded=true
@@ -113,13 +113,8 @@ target7.x=510
 target7.y=80
 target8.editor.height=773
 target8.editor.width=840
-<<<<<<< Updated upstream
-target8.editor.x=0
-target8.editor.y=0
-=======
 target8.editor.x=440
 target8.editor.y=23
->>>>>>> Stashed changes
 target8.height=50
 target8.name=TriangleViewer
 target8.naviview.expanded=true
