@@ -19,12 +19,21 @@ dependency6.to=Square
 dependency6.type=UsesDependency
 objectbench.height=100
 objectbench.width=804
+<<<<<<< Updated upstream
 package.editor.height=814
 package.editor.width=706
 package.editor.x=840
 package.editor.y=0
 package.numDependencies=6
 package.numTargets=6
+=======
+package.editor.height=610
+package.editor.width=1001
+package.editor.x=89
+package.editor.y=24
+package.numDependencies=4
+package.numTargets=4
+>>>>>>> Stashed changes
 package.showExtends=true
 package.showUses=true
 project.charset=UTF-8
