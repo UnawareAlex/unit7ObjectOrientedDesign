@@ -1,40 +1,72 @@
-
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
- * Write a description of class ControlPanel here.
+ * Holds the 'Pick Color', 'Add Circle' and 'Add Square' buttons as well as the current color
+ * indicator panel, which use the ClickListener to implement methods from the DrawingPanel Class
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * Alex Arnold
+ * 
  */
 public class ControlPanel extends JPanel
 {
-    /** description of instance variable x (add comment for each instance variable) */
-    private int x;
-
+    private JButton pickColor;
+    private JPanel currentColor;
+    private JButton addCircle;
+    private JButton addSquare;
+    private DrawingPanel canvas;
+    
     /**
      * Default constructor for objects of class ControlPanel
      */
-    public ControlPanel()
+    public ControlPanel(DrawingPanel panel)
     {
-        // initialise instance variables
-        x = 0;
+        this.canvas = panel;
+        
+        this.pickColor = new JButton("Pick Color"); //adding the buttons to the ControlPanel
+        this.add(this.pickColor);
+        
+        this.currentColor = new JPanel();
+        currentColor.setBackground(canvas.getColor());
+        this.add(this.currentColor);
+        
+        this.addCircle = new JButton("Add Circle");
+        this.add(this.addCircle);
+        
+        this.addSquare = new JButton("Add Square");
+        this.add(this.addSquare);
+        
+        ClickListener listener = new ClickListener(); 
+        this.pickColor.addActionListener(listener); //when these buttons are clicked, actions
+        this.addCircle.addActionListener(listener); //specified in ClickListner occur based
+        this.addSquare.addActionListener(listener); //on the button clicked
     }
-
+    
     /**
-     * An example of a method - replace this comment with your own
-     *    that describes the operation of the method
-     *
-     * @pre        preconditions for the method
-     *            (what the method assumes about the method's parameters and class's state)
-     * @post    postconditions for the method
-     *            (what the method guarantees upon completion)
-     * @param    y    description of parameter y
-     * @return    description of the return value
+     * Calls upon methods in the DrawingPanel class when appropriate button in the ControlPanel
+     * is clicked
      */
-    public int sampleMethod(int y)
+    public class ClickListener implements ActionListener
     {
-        // put your code here
-        return x+y;
+        public void actionPerformed(ActionEvent event)
+        {
+            if (event.getActionCommand().equals("Pick Color"))
+            {
+                canvas.pickColor();
+                currentColor.setBackground(canvas.getColor()); //sets panel to current color
+            }
+            else if (event.getActionCommand().equals("Add Circle"))
+            {
+                canvas.addCircle(); //draws a circle
+            }
+            else if (event.getActionCommand().equals("Add Square"))
+            {
+                canvas.addSquare(); //draws a square
+            }
+        }
     }
+    
 
 }
